@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.acm</groupId>
-  <artifactId>yptp</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-  <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.acm</groupId>
+	<artifactId>yptp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<dependencies>
 
 		<!--引入pageHelper分页插件 -->
 		<dependency>
@@ -133,7 +134,7 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-		
+
 		<!-- ********************** Druid 1.0.16 ********************** -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -209,13 +210,13 @@
 			<version>1.6.1</version>
 		</dependency>
 
-		<!-- excel导出工具 -->
-		<!-- http://repo1.maven.org/maven2/com/xuxueli/xxl-excel-core/ -->
+		
+
 		<dependency>
-			<groupId>com.xuxueli</groupId>
-			<artifactId>xxl-excel</artifactId>
-			<version>1.0.0</version>
+			<groupId>com.sargeraswang.util</groupId>
+			<artifactId>excel-util</artifactId>
+			<version>1.2.1</version>
 		</dependency>
 	</dependencies>
-  
+
 </project>

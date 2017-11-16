@@ -1,15 +1,15 @@
 package com.acm.bean;
 
-import com.xuxueli.poi.excel.annotation.ExcelField;
-import com.xuxueli.poi.excel.annotation.ExcelSheet;
+import com.sargeraswang.util.ExcelUtil.ExcelCell;
 
-@ExcelSheet(name = "名单")
 public class Teacher {
-	@ExcelField(name = "工号")
+	 @ExcelCell(index = 0)
     private String id;
-    @ExcelField(name= " 姓名 ")
+	 
+	 @ExcelCell(index = 1)
     private String name;
-    @ExcelField(name= " 金额 ")
+	 
+	 @ExcelCell(index = 2)
     private Integer money;
 
     
