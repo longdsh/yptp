@@ -29,8 +29,9 @@ public class ServiceTest {
 	@Test
 	public void testTeacherSelect() {
 		//fail("Not yet implemented");
-		Teacher teacher = teacherServiceImpl.selectTeacherById("0413654");
-		System.out.println(teacher);
+		//Teacher teacher = teacherServiceImpl.selectTeacherById("0413654");
+		List<Teacher> teachers = teacherServiceImpl.selectAll();
+		System.out.println(teachers);
 	}
 	@Test
 	public void testTeacherInsert() {

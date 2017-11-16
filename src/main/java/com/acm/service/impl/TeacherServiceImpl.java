@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 import com.acm.bean.Teacher;
@@ -22,6 +23,8 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Resource
 	TeacherMapper teacherMapper;
+	@Resource
+	SqlSession sqlSession;
 	@Override
 	public void insertTeacher(Teacher teacher) {
 		// TODO Auto-generated method stub
@@ -32,6 +35,8 @@ public class TeacherServiceImpl implements TeacherService{
 	public void insertTeacher(List<Teacher> teachers) {
 		// TODO Auto-generated method stub
 		
+		TeacherMapper teacherMapper = (TeacherMapper) sqlSession
+				.getMapper(TeacherMapper.class);
 		
 		for(int i=0;i<teachers.size();i++) {
 			teacherMapper.insertSelective(teachers.get(i));
@@ -65,6 +70,13 @@ public class TeacherServiceImpl implements TeacherService{
 		}
 		return teachers.get(0);
 		
+	}
+	
+	public List<Teacher> selectAll(){
+		TeacherExample example = new TeacherExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdIsNotNull();
+		return teacherMapper.selectByExample(example);
 	}
 
 }

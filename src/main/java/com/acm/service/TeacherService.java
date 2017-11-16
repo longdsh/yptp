@@ -14,5 +14,6 @@ public interface TeacherService {
 	public void insertTeacher(List<Teacher> teachers);
 	public Teacher selectTeacherById(String id);
 	public Teacher selectTeacherByName(String name);
+	public List<Teacher> selectAll();
 
 }
