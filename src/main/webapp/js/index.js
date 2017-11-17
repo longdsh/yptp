@@ -109,7 +109,6 @@ function downUser(){
 }
 
 function downPrize(){
-	alert(111)
 	$.ajax({
 		type : "post",
 		url : getRootPath() + "/importExport/downPrize",
