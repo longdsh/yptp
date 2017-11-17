@@ -62,8 +62,43 @@ public class PrizeController {
 
 	}
 	
-	public Message add(String name) {
-		return null;
+	@ResponseBody
+	@RequestMapping("addOrDown")
+	public Message addOrDown(String name,int type) {
+		Prize prize= prizeServiceImpl.selectByName(name);
+		TeacherPrize teacherPrize = teacherPrizeServiceImpl.findByTeacherIdAndPrizeName(teacher.getId(), name);
+		if(teacherPrize==null) {
+			teacherPrize = new TeacherPrize(teacher.getId(), teacher.getName(), prize.getName(), 0);
+			teacherPrizeServiceImpl.insert(teacherPrize);
+		}
+		System.out.println("PrizeController showAll:" +teacherPrize);
+		if(type==1) {//加
+			//判断余额
+			int newMoney = teacher.getMoney()-prize.getPrice();
+			if(newMoney<0) {
+				return Message.fail().add("msg","余额不足");
+			}
+			//判断货物数量
+			if(prize.getNumber()<=0) {
+				return Message.fail().add("msg","奖品已兑完");
+			}
+			//库存减一 减钱
+			prize.setNumber(prize.getNumber()-1);
+			teacherPrize.setNumber(teacherPrize.getNumber()+1);//购买数加一
+			teacher.setMoney(newMoney);
+		}else {
+			if(teacherPrize.getNumber()==0) {
+				return Message.fail().add("msg", "尚未购买");
+			}
+			
+			int newMoney = teacher.getMoney()+prize.getPrice();
+			//库存减一 减钱
+			prize.setNumber(prize.getNumber()+1);
+			teacherPrize.setNumber(teacherPrize.getNumber()-1);//购买数加一
+			teacher.setMoney(newMoney);
+		}
+		teacherPrizeServiceImpl.addoOrDown(prize, teacher, teacherPrize);
+		return Message.success();
 		
 	}
 }

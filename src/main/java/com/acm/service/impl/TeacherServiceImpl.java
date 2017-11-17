@@ -86,7 +86,7 @@ public class TeacherServiceImpl implements TeacherService{
 		
 	}
 
-	@Override
+	@Override //delete*
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		TeacherExample example = new TeacherExample();

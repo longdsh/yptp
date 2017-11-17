@@ -11,10 +11,11 @@ import com.acm.bean.TeacherPrize;
  * @version 创建时间：2017年11月16日 下午2:06:44 类说明
  */
 public interface TeacherPrizeService {
+	public void insert(TeacherPrize teacherPrize);
 	public void deleteAll();
 	public long countByTeacherId(String id);
 	public TeacherPrize findByTeacherIdAndPrizeName(String id,String name);
-	public void add(Prize prize,Teacher teacher);
-	public void down(Prize prize,Teacher teacher);
+	public void addoOrDown(Prize prize,Teacher teacher,TeacherPrize teacherPrize);
+	public List<TeacherPrize> findAll();
 
 }

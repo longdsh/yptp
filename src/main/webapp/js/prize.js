@@ -54,10 +54,37 @@ function f5Prize(result) {
 }
 
 function addPrize(name){
-	alert(name)
+	$.ajax({
+		type : "post",
+		url : getRootPath() + "/prize/addOrDown",
+		data : {"name":name,"type":1},
+		success : function(result) {
+			// alert(result.extend);
+			//f5Prize(result);
+			if(result.code==100){
+				showAllPrize();
+			}else{
+				alert(result.extend.msg);
+			}
+		}
+	});
 }
+
 function downPrize(name){
-	alert(name)
+	$.ajax({
+		type : "post",
+		url : getRootPath() + "/prize/addOrDown",
+		data:{"name":name,"type":0},
+		success : function(result) {
+			// alert(result.extend);
+			//f5Prize(result);
+			if(result.code==100){
+				showAllPrize();
+			}else{
+				alert(result.extend.msg);
+			}
+		}
+	});
 }
 // 得到绝对路径
 function getRootPath() {

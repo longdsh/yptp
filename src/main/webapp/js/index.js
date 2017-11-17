@@ -78,6 +78,7 @@ function upPrizeExcel(){
 	});
 }
 
+
 function findTeacher(){
 	$.ajax({
 		type : "post",
@@ -97,7 +98,26 @@ function findTeacher(){
 	});
 }
 
+function downUser(){
+	$.ajax({
+		type : "post",
+		url : getRootPath() + "/importExport/downUser",
+		success : function(result) {
+			window.location.href=getRootPath()+"/user/user.xls";
+		}
+	});
+}
 
+function downPrize(){
+	alert(111)
+	$.ajax({
+		type : "post",
+		url : getRootPath() + "/importExport/downPrize",
+		success : function(result) {
+			window.location.href=getRootPath()+"/user/prize.xls";
+		}
+	});
+}
 
 // 得到绝对路径
 function getRootPath() {

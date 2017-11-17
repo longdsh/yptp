@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+
 	<table class="table table-striped">
 		<tr>
 			<td>
@@ -14,13 +15,14 @@
 				</form>
 			</td>
 			<td>
-				<button class="btn btn-success" id="upTeacherButton" onclick="upUserExcel()">上传名单</button>
+				<button class="btn btn-success" id="upTeacherButton"
+					onclick="upUserExcel()">上传名单</button>
 			</td>
 			<td>
-			  <p>会清空上次名单数据及选奖品数据后导入</p>
+				<p>会清空上次名单数据及选奖品数据后导入</p>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td>
 				<form id="upPrize" action="#">
@@ -28,17 +30,21 @@
 				</form>
 			</td>
 			<td>
-				<button class="btn btn-success" id="upPrizeButton" onclick="upPrizeExcel()">上传奖品</button>
+				<button class="btn btn-success" id="upPrizeButton"
+					onclick="upPrizeExcel()">上传奖品</button>
 			</td>
 			<td>
-			  <p>会清空奖品数据后导入</p>
+				<p>会清空奖品数据后导入</p>
 			</td>
 		</tr>
 		<tr>
-		  <td><a href="/yptp/user/user.xls">下载选奖品情况</a></td>
-		  <td><a href="/yptp/user/prize.xls">下载奖品统计</a></td>
+			<td><button class="btn btn-success" id="downUser"
+					onclick="downUser()">下载选奖品情况</button></td>
+			<td><button class="btn btn-success" id="downPrize"
+					onclick="downPrize()">下载奖品统计</button></td>
 		</tr>
 	</table>
+
 
 
 

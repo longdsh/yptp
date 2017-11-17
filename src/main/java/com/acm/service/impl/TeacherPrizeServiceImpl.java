@@ -62,14 +62,29 @@ public class TeacherPrizeServiceImpl implements TeacherPrizeService{
 		return null;
 	}
 	@Override
-	public void add(Prize prize, Teacher teacher) {
+	public void addoOrDown(Prize prize, Teacher teacher,TeacherPrize teacherPrize) {
 		// TODO Auto-generated method stub
+		prizeServiceImpl.updatePrize(prize);
+		teacherServiceImpl.updateTeacher(teacher);
+		TeacherPrizeExample example = new TeacherPrizeExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andTacheridEqualTo(teacher.getId()).andPrizenameEqualTo(prize.getName());
+		teacherPrizeMapper.updateByExampleSelective(teacherPrize, example);
+	}
+	@Override
+	public void insert(TeacherPrize teacherPrize) {
+		// TODO Auto-generated method stub
+		teacherPrizeMapper.insertSelective(teacherPrize);
 		
 	}
 	@Override
-	public void down(Prize prize, Teacher teacher) {
+	public List<TeacherPrize> findAll() {
 		// TODO Auto-generated method stub
-		
+		TeacherPrizeExample example = new TeacherPrizeExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andTacheridIsNotNull();
+		return teacherPrizeMapper.selectByExample(example);
 	}
+	
 
 }
