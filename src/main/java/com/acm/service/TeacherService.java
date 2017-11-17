@@ -15,5 +15,7 @@ public interface TeacherService {
 	public Teacher selectTeacherById(String id);
 	public Teacher selectTeacherByName(String name);
 	public List<Teacher> selectAll();
+	public void updateTeacher(Teacher teacher);
+	public void deleteAll();
 
 }

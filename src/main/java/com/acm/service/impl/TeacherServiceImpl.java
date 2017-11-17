@@ -34,7 +34,7 @@ public class TeacherServiceImpl implements TeacherService{
 	@Override
 	public void insertTeacher(List<Teacher> teachers) {
 		// TODO Auto-generated method stub
-		
+		deleteAll();
 		TeacherMapper teacherMapper = (TeacherMapper) sqlSession
 				.getMapper(TeacherMapper.class);
 		
@@ -77,6 +77,22 @@ public class TeacherServiceImpl implements TeacherService{
 		Criteria criteria = example.createCriteria();
 		criteria.andIdIsNotNull();
 		return teacherMapper.selectByExample(example);
+	}
+
+	@Override
+	public void updateTeacher(Teacher teacher) {
+		// TODO Auto-generated method stub
+		teacherMapper.updateByPrimaryKeySelective(teacher);
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		TeacherExample example = new TeacherExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdIsNotNull();
+		teacherMapper.deleteByExample(example);
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.acm.bean;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.sargeraswang.util.ExcelUtil.ExcelCell;
 
 public class Teacher {
@@ -12,6 +15,7 @@ public class Teacher {
 	 @ExcelCell(index = 2)
     private Integer money;
 
+	 private Map<String, Object> con = new HashMap<>();
     
     public Teacher() {
 		super();
@@ -50,6 +54,18 @@ public class Teacher {
     public void setMoney(Integer money) {
         this.money = money;
     }
+    
+    
+
+	public Map<String, Object> getCon() {
+		return con;
+	}
+
+
+	public void setCon(Map<String, Object> con) {
+		this.con = con;
+	}
+
 
 	@Override
 	public String toString() {
