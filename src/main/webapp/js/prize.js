@@ -44,7 +44,7 @@ function f5Prize(result) {
 		downBtn.click(function(){
 			downPrize(item.name);
 		})
-		var tdAddDown = $("<td></td>").append(addBtn).append(downBtn);
+		var tdAddDown = $("<td></td>").append(addBtn).append("----").append(downBtn);
 		var tdBuyNum = $("<td></td>").append(item.con.buyNum);
 		var tdPrizeNum = $("<td></td>").append(item.number);
 		var tdPrice = $("<td></td>").append(item.price);
