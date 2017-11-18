@@ -33,7 +33,8 @@ public class PrizeController {
 
 	@Resource
 	PrizeServiceImpl prizeServiceImpl;
-	Teacher teacher = null;
+	
+	private Teacher teacher = null;
 
 	@ResponseBody
 	@RequestMapping("showAll")
@@ -64,7 +65,8 @@ public class PrizeController {
 	
 	@ResponseBody
 	@RequestMapping("addOrDown")
-	public Message addOrDown(String name,int type) {
+	public Message addOrDown(String name,int type,HttpServletRequest request) {
+		teacher = (Teacher) request.getSession().getAttribute("teacher");
 		Prize prize= prizeServiceImpl.selectByName(name);
 		TeacherPrize teacherPrize = teacherPrizeServiceImpl.findByTeacherIdAndPrizeName(teacher.getId(), name);
 		if(teacherPrize==null) {
