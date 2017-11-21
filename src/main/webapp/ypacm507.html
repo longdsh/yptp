@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文件上传下载</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+	<table class="table">
+		<tr>
+			<td>
+				<form id="upTeacher" action="#">
+					<input type="file" width="20px" name="file">
+				</form>
+			</td>
+			<td>
+				<button class="btn btn-success" id="upTeacherButton"
+					onclick="upUserExcel()">上传名单</button>
+			</td>
+			<td>
+				<p>会清空上次名单数据及选奖品数据后导入</p>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<form id="upPrize" action="#">
+					<input type="file" width="20px" name="file">
+				</form>
+			</td>
+			<td>
+				<button class="btn btn-success" id="upPrizeButton"
+					onclick="upPrizeExcel()">上传奖品</button>
+			</td>
+			<td>
+				<p>会清空奖品数据后导入</p>
+			</td>
+		</tr>
+		<tr>
+			<td><button class="btn btn-success" id="downUser"
+					onclick="downUser()">下载选奖品情况</button></td>
+			<td><button class="btn btn-success" id="downPrize"
+					onclick="downPrize()">下载奖品统计</button></td>
+		</tr>
+	</table>
+
+
+
+
+
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-form.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
