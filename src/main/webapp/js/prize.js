@@ -36,11 +36,13 @@ function f5Prize(result) {
 	$.each(prizes, function(index, item) {
 		var tr = $("<tr></tr>");
 		var tdPrizeName = $("<td></td>").append(item.name);
+
 		var addBtn = $("<button></button>").addClass("btn btn-success").text("添加").css('font-size',35);
 		addBtn.click(function(){
 			addPrize(item.name);
 		})
 		var downBtn = $("<button></button>").addClass("btn btn-danger").text("减少").css('font-size',35);
+
 		downBtn.click(function(){
 			downPrize(item.name);
 		})
