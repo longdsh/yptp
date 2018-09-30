@@ -2,6 +2,7 @@
  * 
  */
 $(function() {
+	$('#tell').modal('show');
 	$.ajax({
 		type : "post",
 		url : getRootPath() + "/teacher/showAll",
